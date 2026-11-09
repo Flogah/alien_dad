@@ -1,0 +1,22 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bp5txdvjt15t"]
+
+[ext_resource type="Texture2D" uid="uid://d4go68spc6xfr" path="res://assets/sprites/characters/Armstrong-0001.png" id="1_yusl3"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yusl3")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yusl3")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]

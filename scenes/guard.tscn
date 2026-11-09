@@ -1,19 +1,8 @@
 [gd_scene format=3 uid="uid://mry6neuk5n38"]
 
 [ext_resource type="Script" uid="uid://dg8pucxpetbsi" path="res://scenes/guard.gd" id="1_k0dx2"]
-[ext_resource type="Texture2D" uid="uid://d4go68spc6xfr" path="res://assets/sprites/characters/Armstrong-0001.png" id="2_ygo2t"]
+[ext_resource type="SpriteFrames" uid="uid://bp5txdvjt15t" path="res://assets/sprites/sprite_frames/armstrong_spriteframe.tres" id="2_k0dx2"]
 [ext_resource type="Script" uid="uid://dpxr64juka2si" path="res://scenes/interactable.gd" id="3_gn8tx"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ifpyu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_ygo2t")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbgi4"]
 radius = 2.0
@@ -21,11 +10,50 @@ height = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fu68o"]
 
+[sub_resource type="Curve" id="Curve_k0dx2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9026315, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_o6xl0"]
+curve = SubResource("Curve_k0dx2")
+
+[sub_resource type="Gradient" id="Gradient_ygo2t"]
+offsets = PackedFloat32Array(0, 0.4020173, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.2439729, 0.17360842, 0.039948523, 1, 0.17147478, 0.11041581, 0.0026657577, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_563wa"]
+gradient = SubResource("Gradient_ygo2t")
+
+[sub_resource type="Curve" id="Curve_gn8tx"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.34210527, 100), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ckr0i"]
+curve = SubResource("Curve_gn8tx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5dfqo"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 0.4, 1)
+spread = 180.0
+initial_velocity_min = 4.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+damping_min = 6.0000005
+damping_max = 10.0
+damping_curve = SubResource("CurveTexture_ckr0i")
+scale_min = 0.79999995
+scale_max = 3.0
+color = Color(0.9198519, 0, 0.11461083, 1)
+color_ramp = SubResource("GradientTexture1D_563wa")
+alpha_curve = SubResource("CurveTexture_o6xl0")
+
 [node name="Guard" type="CharacterBody2D" unique_id=1633581234]
 script = ExtResource("1_k0dx2")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1888564404]
-sprite_frames = SubResource("SpriteFrames_ifpyu")
+sprite_frames = ExtResource("2_k0dx2")
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=129552200]
 position = Vector2(0, 7)
@@ -41,3 +69,12 @@ metadata/_custom_type_script = "uid://dpxr64juka2si"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=397714545]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_fu68o")
+
+[node name="BloodParticles" type="GPUParticles2D" parent="." unique_id=1031482814]
+position = Vector2(0, 7)
+emitting = false
+amount = 16
+lifetime = 120.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5dfqo")

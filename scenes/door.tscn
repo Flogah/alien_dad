@@ -8,9 +8,13 @@
 atlas = ExtResource("2_la1wf")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_83dcw"]
 atlas = ExtResource("2_la1wf")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la1wf"]
+atlas = ExtResource("2_la1wf")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ckr0i"]
 animations = [{
@@ -24,7 +28,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_choun")
+"texture": SubResource("AtlasTexture_83dcw")
+}],
+"loop": 1,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_la1wf")
 }],
 "loop": 0,
 "name": &"open",
@@ -44,7 +56,7 @@ script = ExtResource("1_83dcw")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=516062292]
 sprite_frames = SubResource("SpriteFrames_ckr0i")
-animation = &"closed"
+animation = &"open"
 
 [node name="Wall" type="CollisionShape2D" parent="." unique_id=1426203036]
 position = Vector2(-7, 0)

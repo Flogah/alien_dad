@@ -1,18 +1,7 @@
 [gd_scene format=3 uid="uid://tnhgt5sr4icp"]
 
 [ext_resource type="Script" uid="uid://bmcp1kemef7av" path="res://scenes/player/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://d4go68spc6xfr" path="res://assets/sprites/characters/Armstrong-0001.png" id="2_qhqgy"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ifpyu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_qhqgy")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://bqd7u3tkdcr5n" path="res://assets/sprites/sprite_frames/alien_spriteframe.tres" id="2_g2els"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbgi4"]
 radius = 2.0
@@ -26,9 +15,11 @@ collision_layer = 2
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_g2els")
+original_skin = ExtResource("2_g2els")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=221068266]
-sprite_frames = SubResource("SpriteFrames_ifpyu")
+sprite_frames = ExtResource("2_g2els")
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1260957444]
 position = Vector2(0, 7)

@@ -1,27 +1,46 @@
 extends StaticBody2D
 
+@export var security_level: SecurityCode
+@export var locked: bool = false
+
 @onready var interactable: Interactable = $Interactable
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var door: CollisionShape2D = $Door
 
-var locked: bool = false
 var closed: bool = true
 
 func _ready() -> void:
 	interactable.interacted.connect(on_interacted)
+	update_sprite()
 
-func on_interacted(actor):
+func on_interacted(actor, sec_acc:SecurityCode):
+	if locked:
+		if sec_acc.level >= security_level.level:
+			print("Access granted")
+			locked = false
+			update_sprite()
+		else:
+			print("Higher access needed")
+			return
 	if closed:
-		closed = false
 		open()
 	else:
-		closed = true
 		close()
 
 func open():
-	sprite.play("open")
+	closed = false
 	door.disabled = true
+	update_sprite()
 
 func close():
-	sprite.play("closed")
+	closed = true
 	door.disabled = false
+	update_sprite()
+
+func update_sprite():
+	if locked:
+		sprite.play("locked")
+	elif closed:
+		sprite.play("closed")
+	else:
+		sprite.play("open")

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bogw7r3cw2mfg" path="res://assets/sprites/proto_palette.png" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://4wc0j7aytt5q" path="res://scenes/level_1.gd" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dxoip0yqmqb50" path="res://scenes/test_interaction.tscn" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://d3r8cfdw2ei2c" path="res://scripts/security_code.gd" id="5_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://tnhgt5sr4icp" path="res://scenes/player.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://mry6neuk5n38" path="res://scenes/guard.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://d3xqn8v53ugho" path="res://scenes/door.tscn" id="6_tefeu"]
@@ -32,6 +33,25 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_f3u8r")
 
+[sub_resource type="Resource" id="Resource_tefeu"]
+script = ExtResource("5_o6xl0")
+metadata/_custom_type_script = "uid://d3r8cfdw2ei2c"
+
+[sub_resource type="Resource" id="Resource_tipki"]
+script = ExtResource("5_o6xl0")
+level = 1
+metadata/_custom_type_script = "uid://d3r8cfdw2ei2c"
+
+[sub_resource type="Resource" id="Resource_qhqgy"]
+script = ExtResource("5_o6xl0")
+level = 1
+metadata/_custom_type_script = "uid://d3r8cfdw2ei2c"
+
+[sub_resource type="Resource" id="Resource_g2els"]
+script = ExtResource("5_o6xl0")
+holder = "Tobsucht Gelbmann"
+metadata/_custom_type_script = "uid://d3r8cfdw2ei2c"
+
 [node name="Main" type="Node2D" unique_id=1805818713]
 
 [node name="level1" type="Node2D" parent="." unique_id=1980516356]
@@ -50,12 +70,44 @@ position = Vector2(56, 24)
 
 [node name="Door" parent="level1" unique_id=1021106081 instance=ExtResource("6_tefeu")]
 position = Vector2(88, 56)
+security_level = SubResource("Resource_tefeu")
+locked = true
 
 [node name="Door2" parent="level1" unique_id=1401858854 instance=ExtResource("6_tefeu")]
 position = Vector2(152, 56)
+security_level = SubResource("Resource_tipki")
+locked = true
+
+[node name="NPC" type="Node2D" parent="level1" unique_id=913914847]
+
+[node name="Guard" parent="level1/NPC" unique_id=1633581234 instance=ExtResource("6_o6xl0")]
+position = Vector2(127, 30)
+security_access = SubResource("Resource_qhqgy")
+
+[node name="Guard2" parent="level1/NPC" unique_id=2016185090 instance=ExtResource("6_o6xl0")]
+position = Vector2(40, 80)
+security_access = SubResource("Resource_qhqgy")
+
+[node name="Guard3" parent="level1/NPC" unique_id=763956445 instance=ExtResource("6_o6xl0")]
+position = Vector2(60, 73)
+security_access = SubResource("Resource_qhqgy")
+
+[node name="Guard4" parent="level1/NPC" unique_id=445022662 instance=ExtResource("6_o6xl0")]
+position = Vector2(80, 81)
+security_access = SubResource("Resource_qhqgy")
+
+[node name="Guard5" parent="level1/NPC" unique_id=1631747607 instance=ExtResource("6_o6xl0")]
+position = Vector2(101, 73)
+security_access = SubResource("Resource_qhqgy")
+
+[node name="Guard6" parent="level1/NPC" unique_id=471042583 instance=ExtResource("6_o6xl0")]
+position = Vector2(123, 80)
+security_access = SubResource("Resource_qhqgy")
+
+[node name="Guard7" parent="level1/NPC" unique_id=581185931 instance=ExtResource("6_o6xl0")]
+position = Vector2(145, 74)
+security_access = SubResource("Resource_qhqgy")
 
 [node name="Player" parent="level1" unique_id=1695450581 instance=ExtResource("5_tbgi4")]
 position = Vector2(24, 24)
-
-[node name="Guard" parent="level1" unique_id=1633581234 instance=ExtResource("6_o6xl0")]
-position = Vector2(101, 33)
+security_access = SubResource("Resource_g2els")

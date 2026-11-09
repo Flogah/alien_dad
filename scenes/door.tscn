@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://d3xqn8v53ugho"]
+
+[ext_resource type="Script" uid="uid://3w1oplgxyflt" path="res://scenes/door.gd" id="1_83dcw"]
+[ext_resource type="Texture2D" uid="uid://dsljjdl0m2d40" path="res://assets/sprites/door.png" id="2_la1wf"]
+[ext_resource type="Script" uid="uid://dpxr64juka2si" path="res://scenes/interactable.gd" id="3_18pbm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
+atlas = ExtResource("2_la1wf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
+atlas = ExtResource("2_la1wf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ckr0i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85g3d")
+}],
+"loop": 0,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_choun")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_563wa"]
+size = Vector2(2, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu68o"]
+size = Vector2(12, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fu68o"]
+
+[node name="Door" type="StaticBody2D" unique_id=1021106081]
+script = ExtResource("1_83dcw")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=516062292]
+sprite_frames = SubResource("SpriteFrames_ckr0i")
+animation = &"closed"
+
+[node name="Wall" type="CollisionShape2D" parent="." unique_id=1426203036]
+position = Vector2(-7, 0)
+shape = SubResource("RectangleShape2D_563wa")
+
+[node name="Wall2" type="CollisionShape2D" parent="." unique_id=1169305895]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_563wa")
+
+[node name="Door" type="CollisionShape2D" parent="." unique_id=1877225488]
+shape = SubResource("RectangleShape2D_fu68o")
+
+[node name="Interactable" type="Area2D" parent="." unique_id=1020356476]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("3_18pbm")
+metadata/_custom_type_script = "uid://dpxr64juka2si"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1477663035]
+shape = SubResource("CircleShape2D_fu68o")

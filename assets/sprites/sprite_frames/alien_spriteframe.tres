@@ -1,9 +1,14 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://bqd7u3tkdcr5n"]
 
 [ext_resource type="Texture2D" uid="uid://8q55kcey3dgf" path="res://assets/sprites/characters/AlienDad.png" id="1_fsdj6"]
+[ext_resource type="Texture2D" uid="uid://cuhk3gwe8rv2p" path="res://assets/sprites/characters/AlienDad_Rev.png" id="2_ivdpr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("1_fsdj6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqjlh"]
+atlas = ExtResource("2_ivdpr")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
@@ -18,6 +23,18 @@ region = Rect2(32, 0, 16, 16)
 atlas = ExtResource("1_fsdj6")
 region = Rect2(48, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rjsh"]
+atlas = ExtResource("2_ivdpr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdpqt"]
+atlas = ExtResource("2_ivdpr")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofawl"]
+atlas = ExtResource("2_ivdpr")
+region = Rect2(48, 0, 16, 16)
+
 [resource]
 animations = [{
 "frames": [{
@@ -26,6 +43,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqjlh")
+}],
+"loop": 1,
+"name": &"idle_up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -40,5 +65,19 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rjsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdpqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofawl")
+}],
+"loop": 1,
+"name": &"walk_up",
 "speed": 5.0
 }]

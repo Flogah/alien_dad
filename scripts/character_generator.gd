@@ -5,6 +5,12 @@ var FILES = {
   'last' : "res://scripts/name_list/last.txt"
 }
 
+var npc_characters = {
+	'black' : "res://assets/sprites/sprite_frames/black_suit_spriteframes.tres",
+	'blue' : "res://assets/sprites/sprite_frames/blue_suit_spriteframes.tres",
+	'grey' : "res://assets/sprites/sprite_frames/grey_suit_spritesframes.tres",
+}
+
 func random_first_last_name() -> String:
 	var full_name: String = ''
 	full_name += random_item(FILES['first'])
@@ -28,3 +34,10 @@ func get_line_amount(file: String) -> int:
 		lines += 1
 		list.get_line()
 	return lines
+
+func random_spriteframes() -> SpriteFrames:
+	var size = npc_characters.size()
+	var rand = npc_characters.keys()[randi_range(0,size-1)]
+	var path = npc_characters[rand]
+	var frames = load(path)
+	return frames

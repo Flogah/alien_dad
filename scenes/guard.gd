@@ -5,14 +5,20 @@ extends CharacterBody2D
 @onready var blood_particles: GPUParticles2D = $BloodParticles
 
 @export var security_access: SecurityCode
+@export var spriteframes: SpriteFrames
 
 var dead: bool = false
 
 func _ready() -> void:
 	if !security_access:
 		security_access = SecurityCode.new()
+	if spriteframes:
+		sprite.sprite_frames = spriteframes
+	else:
+		sprite.sprite_frames = CharacterGenerator.random_spriteframes()
 	if security_access.holder.is_empty():
-		security_access.holder = NameGenerator.random_first_last_name()
+		security_access.holder = CharacterGenerator.random_first_last_name()
+	
 	interactable.interacted.connect(on_interacted)
 
 func on_interacted(actor, sec_acc):

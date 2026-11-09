@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-NameGenerator="*uid://csntkedd1lbma"
+CharacterGenerator="*uid://csntkedd1lbma"
 
 [display]
 

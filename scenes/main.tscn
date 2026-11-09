@@ -78,6 +78,18 @@ position = Vector2(88, -40)
 [node name="Guard" parent="level1/NPC" unique_id=1633581234 instance=ExtResource("6_o6xl0")]
 position = Vector2(27, -13)
 
+[node name="Guard2" parent="level1/NPC" unique_id=1061942040 instance=ExtResource("6_o6xl0")]
+position = Vector2(111, -11)
+
+[node name="Guard3" parent="level1/NPC" unique_id=2116407465 instance=ExtResource("6_o6xl0")]
+position = Vector2(148, -24)
+
+[node name="Guard4" parent="level1/NPC" unique_id=1224210424 instance=ExtResource("6_o6xl0")]
+position = Vector2(152, 15)
+
+[node name="Guard5" parent="level1/NPC" unique_id=1498169252 instance=ExtResource("6_o6xl0")]
+position = Vector2(187, -9)
+
 [node name="Doors" type="Node2D" parent="level1" unique_id=561313355]
 
 [node name="Door" parent="level1/Doors" unique_id=1021106081 instance=ExtResource("6_tefeu")]

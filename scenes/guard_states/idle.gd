@@ -10,6 +10,6 @@ func physics_update(_delta: float) -> void:
 		pace()
 
 func pace():
-	
-	enemy.move(Vector2.DOWN.rotated(randf_range(-PI, PI)))
-	timer = randf_range(0.5, 0.7)
+	var random_pos:Vector2 = enemy.global_position + Vector2(randi_range(-15, 15), randi_range(-15, 15))
+	enemy.set_target_pos(random_pos)
+	timer = randf_range(3, 5)

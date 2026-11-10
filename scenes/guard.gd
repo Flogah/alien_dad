@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var blood_particles: GPUParticles2D = $BloodParticles
 @onready var detection_area: Area2D = %DetectionArea
+@onready var nav_agent: NavigationAgent2D = %NavigationAgent2D
 
 @export var agent_leader:bool = false
 @export var security_pass: SecurityPass
@@ -14,6 +15,7 @@ var dead: bool = false
 var player:Player
 
 var perceives_player_as_threat:bool = false
+var target
 
 func _ready() -> void:
 	if !security_pass:
@@ -31,10 +33,18 @@ func _ready() -> void:
 	interactable.interacted.connect(on_interacted)
 
 func _physics_process(_delta: float) -> void:
+	var next_path_position = nav_agent.get_next_path_position()
+	var new_vel = (next_path_position - global_position).normalized()
+	velocity = new_vel * 10
 	move_and_slide()
+	
+	if velocity.is_equal_approx(Vector2.ZERO):
+		sprite.play("walk")
+	else:
+		sprite.play("idle")
 
-func move(dir: Vector2) -> void:
-	velocity = dir * 10.0
+func set_target_pos(pos: Vector2) -> void:
+	nav_agent.target_position = pos
 
 func on_interacted(actor, sec_acc):
 	if dead:

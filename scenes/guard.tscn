@@ -50,6 +50,9 @@ color = Color(0.9198519, 0, 0.11461083, 1)
 color_ramp = SubResource("GradientTexture1D_563wa")
 alpha_curve = SubResource("CurveTexture_o6xl0")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ifpyu"]
+radius = 50.0
+
 [node name="Guard" type="CharacterBody2D" unique_id=1633581234]
 collision_layer = 4
 collision_mask = 3
@@ -90,3 +93,8 @@ script = ExtResource("4_gn8tx")
 
 [node name="State" type="Node" parent="StateMachine" unique_id=1872335320]
 script = ExtResource("5_5dfqo")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1480682960]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1366269589]
+shape = SubResource("CircleShape2D_ifpyu")

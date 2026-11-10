@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="SecurityPass" format=3 uid="uid://bb7wrry5p5w60"]
 
-[ext_resource type="Script" uid="uid://4fqxop4frvlm" path="res://scripts/security_pass.gd" id="1_ctlip"]
-[ext_resource type="SpriteFrames" uid="uid://bqd7u3tkdcr5n" path="res://assets/sprites/sprite_frames/alien_spriteframe.tres" id="2_f4jun"]
+[ext_resource type="Script" uid="uid://4fqxop4frvlm" path="res://scripts/security_pass.gd" id="1_2c0pb"]
+[ext_resource type="SpriteFrames" uid="uid://bqd7u3tkdcr5n" path="res://assets/sprites/sprite_frames/alien_spriteframe.tres" id="2_gvhh8"]
 
 [resource]
-script = ExtResource("1_ctlip")
+script = ExtResource("1_2c0pb")
 holder = "Anonymous Bosch"
-sprite = ExtResource("2_f4jun")
+sprite = ExtResource("2_gvhh8")
 metadata/_custom_type_script = "uid://4fqxop4frvlm"

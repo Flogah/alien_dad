@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var blood_particles: GPUParticles2D = $BloodParticles
 
+@export var agent_leader:bool = false
 @export var security_pass: SecurityPass
 
 var dead: bool = false
@@ -11,7 +12,10 @@ var dead: bool = false
 func _ready() -> void:
 	if !security_pass:
 		security_pass = SecurityPass.new()
-		security_pass.level = SecurityCode.sec_level.mid_sec
+		if agent_leader:
+			security_pass.level = SecurityCode.sec_level.hi_sec
+		else:
+			security_pass.level = SecurityCode.sec_level.low_sec
 	if !security_pass.sprite:
 		security_pass.sprite = CharacterGenerator.random_spriteframes()
 	sprite.sprite_frames = security_pass.sprite

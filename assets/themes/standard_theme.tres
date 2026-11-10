@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://cj0kowg8s0uu4"]
+
+[ext_resource type="FontFile" uid="uid://cqpgxh01ymfhn" path="res://assets/fonts/Minecraftia-Regular.ttf" id="1_aum2e"]
+
+[resource]
+default_font = ExtResource("1_aum2e")

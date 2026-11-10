@@ -14,5 +14,8 @@ extends CanvasLayer
 func update_id():
 	headshot_sprite.sprite_frames = security_id.sprite
 	name_label.text = security_id.holder
-	access_label.text = 'Access Level: ' + str(security_id.level)
+	if security_id.level > 0:
+		access_label.text = 'Access Level: ' + str(security_id.level)
+	else:
+		access_label.text = 'Security Threat'
 	bg_col.color = security_id.get_security_color(security_id.level)

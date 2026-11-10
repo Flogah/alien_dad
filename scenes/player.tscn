@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://bb7wrry5p5w60" path="res://resources/character_ids/alien_id.tres" id="2_tuyoq"]
 [ext_resource type="SpriteFrames" uid="uid://cak5gslna3kum" path="res://assets/sprites/sprite_frames/black_suit_spriteframes.tres" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://dmp0whbxvknbx" path="res://scenes/player/player_ui.gd" id="3_qlg0r"]
-[ext_resource type="FontFile" uid="uid://cqpgxh01ymfhn" path="res://assets/fonts/Minecraftia-Regular.ttf" id="4_qlg0r"]
+[ext_resource type="Theme" uid="uid://cj0kowg8s0uu4" path="res://assets/themes/standard_theme.tres" id="6_tuyoq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbgi4"]
 radius = 2.0
@@ -51,27 +51,20 @@ grow_vertical = 2
 
 [node name="ID" type="Control" parent="PlayerUI/Frame" unique_id=1650970934]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -145.0
-offset_top = -107.0
-offset_right = 145.0
-grow_horizontal = 2
+offset_left = 25.0
+offset_top = -172.0
+offset_right = 366.0
+offset_bottom = -31.0
 grow_vertical = 0
 
 [node name="Container" type="MarginContainer" parent="PlayerUI/Frame/ID" unique_id=1784848998]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.11000001
-anchor_top = -0.439
-anchor_right = 1.11
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.099998474
-offset_top = -0.027000427
-offset_right = 0.1000061
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 3
@@ -84,16 +77,16 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0.5899028, 0.5899029, 0.5899029, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Photo" type="Control" parent="PlayerUI/Frame/ID" unique_id=603890575]
 custom_minimum_size = Vector2(50, 65)
 layout_mode = 1
 anchors_preset = 0
-offset_left = -1.0
-offset_top = -12.0
-offset_right = 67.0
-offset_bottom = 71.0
+offset_left = 22.0
+offset_top = 30.0
+offset_right = 90.0
+offset_bottom = 113.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -118,19 +111,19 @@ animation = &"idle"
 [node name="NameLabel" type="Label" parent="PlayerUI/Frame/ID" unique_id=1144731517]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 82.0
-offset_top = 2.0
-offset_right = 274.0
-offset_bottom = 30.0
-theme_override_fonts/font = ExtResource("4_qlg0r")
+offset_left = 103.0
+offset_top = 40.0
+offset_right = 295.0
+offset_bottom = 68.0
+theme = ExtResource("6_tuyoq")
 text = "Firstname Lastname"
 
 [node name="AccessLabel" type="Label" parent="PlayerUI/Frame/ID" unique_id=232239769]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 82.0
-offset_top = 35.0
-offset_right = 241.0
-offset_bottom = 63.0
-theme_override_fonts/font = ExtResource("4_qlg0r")
+offset_left = 103.0
+offset_top = 73.0
+offset_right = 262.0
+offset_bottom = 101.0
+theme = ExtResource("6_tuyoq")
 text = "Access Level: 0"

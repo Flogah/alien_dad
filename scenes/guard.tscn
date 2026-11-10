@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://ci6jgmussaneu" path="res://assets/sprites/sprite_frames/grey_suit_spritesframes.tres" id="2_k0dx2"]
 [ext_resource type="Script" uid="uid://dpxr64juka2si" path="res://scenes/interactable.gd" id="3_gn8tx"]
 [ext_resource type="Script" uid="uid://djrc3ca55nyt8" path="res://scripts/state_machine/state_machine.gd" id="4_gn8tx"]
-[ext_resource type="Script" uid="uid://bfbxxj3mlo3uq" path="res://scripts/state_machine/State.gd" id="5_5dfqo"]
+[ext_resource type="Script" uid="uid://7xllfds2knkq" path="res://scenes/guard_states/idle.gd" id="5_gn8tx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbgi4"]
 radius = 2.0
@@ -61,15 +61,16 @@ script = ExtResource("1_k0dx2")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=87589424]
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1888564404]
+position = Vector2(0, -7)
 sprite_frames = ExtResource("2_k0dx2")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=129552200]
-position = Vector2(0, 7)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_tbgi4")
 
 [node name="Interactable" type="Area2D" parent="." unique_id=492770120]
+position = Vector2(0, -7)
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("3_gn8tx")
@@ -80,7 +81,6 @@ position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_fu68o")
 
 [node name="BloodParticles" type="GPUParticles2D" parent="." unique_id=1031482814]
-position = Vector2(0, 7)
 emitting = false
 amount = 16
 lifetime = 120.0
@@ -88,13 +88,18 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_5dfqo")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1230442977]
+[node name="StateMachine" type="Node" parent="." unique_id=1230442977 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_gn8tx")
+initial_state = NodePath("Idle")
 
-[node name="State" type="Node" parent="StateMachine" unique_id=1872335320]
-script = ExtResource("5_5dfqo")
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1853013374 node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_gn8tx")
+enemy = NodePath("../..")
+state_id = &"idle"
+metadata/_custom_type_script = "uid://bfbxxj3mlo3uq"
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1480682960]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1366269589]
 shape = SubResource("CircleShape2D_ifpyu")

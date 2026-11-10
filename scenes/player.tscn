@@ -22,15 +22,16 @@ script = ExtResource("1_g2els")
 original_id = ExtResource("2_tuyoq")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=221068266]
+position = Vector2(0, -7)
 sprite_frames = ExtResource("2_g2els")
 animation = &"idle_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1260957444]
-position = Vector2(0, 7)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_tbgi4")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=972047926]
+position = Vector2(0, -7)
 collision_layer = 8
 collision_mask = 8
 

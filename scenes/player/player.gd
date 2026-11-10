@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 
 @export var speed:float = 25.0
-@export var security_access: SecurityPass
+@export var security_pass: SecurityPass
 
 @export var original_id: SecurityPass
 
@@ -16,9 +16,9 @@ var reverse: bool = false
 var last_dir: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
-	if !security_access:
-		security_access = original_id
-	player_ui.security_id = security_access
+	if !security_pass:
+		security_pass = original_id
+	player_ui.security_id = security_pass
 
 func _physics_process(_delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -67,13 +67,16 @@ func try_interact():
 		if global_position.distance_squared_to(closest_area.global_position) > global_position.distance_squared_to(area.global_position):
 			closest_area = area
 	
-	closest_area.interact(self, security_access)
+	closest_area.interact(self, security_pass)
 
 func assume_skin(new_pass: SecurityPass):
-	security_access = new_pass
-	sprite.sprite_frames = security_access.sprite
-	player_ui.security_id = security_access
+	security_pass = new_pass
+	sprite.sprite_frames = security_pass.sprite
+	player_ui.security_id = security_pass
 
 func lose_skin():
 	sprite.sprite_frames = original_id.sprite
-	player_ui.security_id = security_access
+	player_ui.security_id = security_pass
+
+func get_id() -> SecurityPass:
+	return security_pass

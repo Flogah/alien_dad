@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SecurityPass" format=3 uid="uid://gipffcb64va5"]
+
+[ext_resource type="Script" uid="uid://4fqxop4frvlm" path="res://scripts/security_pass.gd" id="1_5rj8d"]
+[ext_resource type="SpriteFrames" uid="uid://bp5txdvjt15t" path="res://assets/sprites/sprite_frames/armstrong_spriteframe.tres" id="2_ovawh"]
+
+[resource]
+script = ExtResource("1_5rj8d")
+holder = "Steven Armstrong"
+sprite = ExtResource("2_ovawh")
+level = 3
+metadata/_custom_type_script = "uid://4fqxop4frvlm"

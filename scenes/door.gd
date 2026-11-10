@@ -19,6 +19,7 @@ func on_interacted(actor, sec_acc:SecurityCode):
 			print("Access granted")
 			locked = false
 			update_sprite()
+			return
 		else:
 			print("Higher access needed")
 			return

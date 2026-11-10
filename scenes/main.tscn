@@ -5,8 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://dxoip0yqmqb50" path="res://scenes/test_interaction.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://d3r8cfdw2ei2c" path="res://scripts/security_code.gd" id="5_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://tnhgt5sr4icp" path="res://scenes/player.tscn" id="5_tbgi4"]
+[ext_resource type="Resource" uid="uid://gipffcb64va5" path="res://resources/character_ids/armstrong_id.tres" id="6_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://mry6neuk5n38" path="res://scenes/guard.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://d3xqn8v53ugho" path="res://scenes/door.tscn" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://4fqxop4frvlm" path="res://scripts/security_pass.gd" id="8_85g3d"]
+[ext_resource type="SpriteFrames" uid="uid://bqd7u3tkdcr5n" path="res://assets/sprites/sprite_frames/alien_spriteframe.tres" id="9_choun"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f3u8r"]
 texture = ExtResource("1_sugp2")
@@ -33,33 +36,35 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_f3u8r")
 
+[sub_resource type="Resource" id="Resource_eamin"]
+script = ExtResource("8_85g3d")
+level = 2
+metadata/_custom_type_script = "uid://4fqxop4frvlm"
+
 [sub_resource type="Resource" id="Resource_ifpyu"]
 script = ExtResource("5_o6xl0")
-holder = "Door"
 metadata/_custom_type_script = "uid://d3r8cfdw2ei2c"
 
 [sub_resource type="Resource" id="Resource_ckr0i"]
 script = ExtResource("5_o6xl0")
-holder = "Door"
 level = 1
 metadata/_custom_type_script = "uid://d3r8cfdw2ei2c"
 
 [sub_resource type="Resource" id="Resource_563wa"]
 script = ExtResource("5_o6xl0")
-holder = "Door"
 level = 2
 metadata/_custom_type_script = "uid://d3r8cfdw2ei2c"
 
 [sub_resource type="Resource" id="Resource_fu68o"]
 script = ExtResource("5_o6xl0")
-holder = "Door"
 level = 3
 metadata/_custom_type_script = "uid://d3r8cfdw2ei2c"
 
-[sub_resource type="Resource" id="Resource_g2els"]
-script = ExtResource("5_o6xl0")
-holder = "Tobsucht Gelbmann"
-metadata/_custom_type_script = "uid://d3r8cfdw2ei2c"
+[sub_resource type="Resource" id="Resource_o6xl0"]
+script = ExtResource("8_85g3d")
+holder = "Anonymous Bosch"
+sprite = ExtResource("9_choun")
+metadata/_custom_type_script = "uid://4fqxop4frvlm"
 
 [node name="Main" type="Node2D" unique_id=1805818713]
 
@@ -78,17 +83,16 @@ position = Vector2(88, -40)
 [node name="Guard" parent="level1/NPC" unique_id=1633581234 instance=ExtResource("6_o6xl0")]
 position = Vector2(27, -13)
 
-[node name="Guard2" parent="level1/NPC" unique_id=1061942040 instance=ExtResource("6_o6xl0")]
-position = Vector2(111, -11)
-
 [node name="Guard3" parent="level1/NPC" unique_id=2116407465 instance=ExtResource("6_o6xl0")]
 position = Vector2(148, -24)
 
 [node name="Guard4" parent="level1/NPC" unique_id=1224210424 instance=ExtResource("6_o6xl0")]
-position = Vector2(152, 15)
+position = Vector2(146, 20)
+security_pass = SubResource("Resource_eamin")
 
 [node name="Guard5" parent="level1/NPC" unique_id=1498169252 instance=ExtResource("6_o6xl0")]
 position = Vector2(187, -9)
+security_pass = ExtResource("6_eb6dy")
 
 [node name="Doors" type="Node2D" parent="level1" unique_id=561313355]
 
@@ -162,12 +166,12 @@ locked = true
 
 [node name="Door13" parent="level1/Doors" unique_id=180111534 instance=ExtResource("6_tefeu")]
 position = Vector2(184, 56)
-security_level = SubResource("Resource_ifpyu")
+security_level = SubResource("Resource_ckr0i")
 locked = true
 
 [node name="Player" parent="level1" unique_id=1695450581 instance=ExtResource("5_tbgi4")]
 position = Vector2(24, 24)
-security_access = SubResource("Resource_g2els")
+security_access = SubResource("Resource_o6xl0")
 
 [node name="Camera2D" type="Camera2D" parent="level1/Player" unique_id=1976595741]
 position = Vector2(1, 2)

@@ -3,19 +3,22 @@ extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var interaction_area: Area2D = $InteractionArea
+@onready var player_ui: CanvasLayer = %PlayerUI
+
 
 @export var speed:float = 25.0
-@export var security_access: SecurityCode
+@export var security_access: SecurityPass
 
-@export var original_skin: SpriteFrames
+@export var original_id: SecurityPass
 
 var reverse: bool = false
 
-var last_dir: Vector2 = Vector2.ZERO:
-	set(new_val):
-		#var old_val = last_dir
-		last_dir = new_val
-		#if old_val != new_val: print(new_val)
+var last_dir: Vector2 = Vector2.ZERO
+
+func _ready() -> void:
+	if !security_access:
+		security_access = original_id
+	player_ui.security_id = security_access
 
 func _physics_process(_delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -65,12 +68,12 @@ func try_interact():
 			closest_area = area
 	
 	closest_area.interact(self, security_access)
-		
-func assume_skin(new_skin: SpriteFrames, new_acc: SecurityCode):
-	sprite.sprite_frames = new_skin
-	security_access = new_acc
-	#if new_acc.level > security_access.level:
-		#security_access = new_acc
+
+func assume_skin(new_pass: SecurityPass):
+	security_access = new_pass
+	sprite.sprite_frames = security_access.sprite
+	player_ui.security_id = security_access
 
 func lose_skin():
-	sprite.sprite_frames = original_skin
+	sprite.sprite_frames = original_id.sprite
+	player_ui.security_id = security_access

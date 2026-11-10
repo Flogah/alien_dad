@@ -4,7 +4,7 @@ Schmidt
 Müller
 Jezos
 B. Scheuert
-Gefahr
+Danger Gefahr
 Imposter
 Dumm
 Ochsenknecht
@@ -26,8 +26,17 @@ Unverdächtig
 Töpfer
 Hotter
 Hotski
-das Schnabeltier
-der Klopfer
+das Tier
+Snab
+Klopfer
+Klob
 die Maschine
+Roboto
 Mensch
 Gurke
+Bogen
+Gotenfänger
+Rizzler
+Baddie
+McAgentface
+Kriecher

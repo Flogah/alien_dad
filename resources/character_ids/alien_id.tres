@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SecurityPass" format=3 uid="uid://bb7wrry5p5w60"]
+
+[ext_resource type="Script" uid="uid://4fqxop4frvlm" path="res://scripts/security_pass.gd" id="1_ctlip"]
+[ext_resource type="SpriteFrames" uid="uid://bqd7u3tkdcr5n" path="res://assets/sprites/sprite_frames/alien_spriteframe.tres" id="2_f4jun"]
+
+[resource]
+script = ExtResource("1_ctlip")
+holder = "Anonymous Bosch"
+sprite = ExtResource("2_f4jun")
+metadata/_custom_type_script = "uid://4fqxop4frvlm"

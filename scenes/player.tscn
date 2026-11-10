@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bmcp1kemef7av" path="res://scenes/player/player.gd" id="1_g2els"]
 [ext_resource type="SpriteFrames" uid="uid://bqd7u3tkdcr5n" path="res://assets/sprites/sprite_frames/alien_spriteframe.tres" id="2_g2els"]
+[ext_resource type="Resource" uid="uid://bb7wrry5p5w60" path="res://resources/character_ids/alien_id.tres" id="2_tuyoq"]
+[ext_resource type="SpriteFrames" uid="uid://cak5gslna3kum" path="res://assets/sprites/sprite_frames/black_suit_spriteframes.tres" id="3_dqkch"]
+[ext_resource type="Script" uid="uid://dmp0whbxvknbx" path="res://scenes/player/player_ui.gd" id="3_qlg0r"]
+[ext_resource type="FontFile" uid="uid://cqpgxh01ymfhn" path="res://assets/fonts/Minecraftia-Regular.ttf" id="4_qlg0r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbgi4"]
 radius = 2.0
@@ -15,7 +19,7 @@ collision_layer = 2
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_g2els")
-original_skin = ExtResource("2_g2els")
+original_id = ExtResource("2_tuyoq")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=221068266]
 sprite_frames = ExtResource("2_g2els")
@@ -32,3 +36,101 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1132290362]
 shape = SubResource("CircleShape2D_ckr0i")
+
+[node name="PlayerUI" type="CanvasLayer" parent="." unique_id=953625417]
+unique_name_in_owner = true
+script = ExtResource("3_qlg0r")
+
+[node name="Frame" type="Control" parent="PlayerUI" unique_id=156421297]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ID" type="Control" parent="PlayerUI/Frame" unique_id=1650970934]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -145.0
+offset_top = -107.0
+offset_right = 145.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Container" type="MarginContainer" parent="PlayerUI/Frame/ID" unique_id=1784848998]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.11000001
+anchor_top = -0.439
+anchor_right = 1.11
+anchor_bottom = 1.0
+offset_left = -0.099998474
+offset_top = -0.027000427
+offset_right = 0.1000061
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="BGCol" type="ColorRect" parent="PlayerUI/Frame/ID/Container" unique_id=1191167353]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.5899028, 0.5899029, 0.5899029, 1)
+
+[node name="Photo" type="Control" parent="PlayerUI/Frame/ID" unique_id=603890575]
+custom_minimum_size = Vector2(50, 65)
+layout_mode = 1
+anchors_preset = 0
+offset_left = -1.0
+offset_top = -12.0
+offset_right = 67.0
+offset_bottom = 71.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="PlayerUI/Frame/ID/Photo" unique_id=1258902552]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HeadshotSprite" type="AnimatedSprite2D" parent="PlayerUI/Frame/ID/Photo/ColorRect" unique_id=1050049515]
+unique_name_in_owner = true
+position = Vector2(34.999985, 102.000015)
+scale = Vector2(13.039062, 13.039062)
+sprite_frames = ExtResource("3_dqkch")
+animation = &"idle"
+
+[node name="NameLabel" type="Label" parent="PlayerUI/Frame/ID" unique_id=1144731517]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 82.0
+offset_top = 2.0
+offset_right = 274.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("4_qlg0r")
+text = "Firstname Lastname"
+
+[node name="AccessLabel" type="Label" parent="PlayerUI/Frame/ID" unique_id=232239769]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 82.0
+offset_top = 35.0
+offset_right = 241.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("4_qlg0r")
+text = "Access Level: 0"

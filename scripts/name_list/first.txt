@@ -7,7 +7,7 @@ Crewmate
 Fridolin
 Jimmy-Blu
 Wilson-Gonzalez
-Notalion
+Notalien
 Eaty
 Karsten
 Longdong
@@ -27,3 +27,7 @@ Kofidot
 Harald
 Perry
 Baby
+Kasimir
+Tomate
+Mikkie
+Bussi

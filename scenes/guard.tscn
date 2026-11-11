@@ -57,6 +57,9 @@ alpha_curve = SubResource("CurveTexture_o6xl0")
 [sub_resource type="CircleShape2D" id="CircleShape2D_ifpyu"]
 radius = 50.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rmy4q"]
+radius = 75.0
+
 [node name="Guard" type="CharacterBody2D" unique_id=1633581234]
 collision_layer = 4
 collision_mask = 3
@@ -76,7 +79,7 @@ animation = &"walk_up"
 [node name="VisionCone" type="Sprite2D" parent="." unique_id=1293999744]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.33333334)
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 texture = ExtResource("3_rmy4q")
 offset = Vector2(8, 8)
 
@@ -138,8 +141,19 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1366269589]
+visible = false
 shape = SubResource("CircleShape2D_ifpyu")
 
 [node name="VisionRaycast" type="RayCast2D" parent="DetectionArea" unique_id=2123315247]
 unique_name_in_owner = true
 collision_mask = 3
+
+[node name="LoseArea" type="Area2D" parent="." unique_id=1916468430]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoseArea" unique_id=1677076364]
+visible = false
+shape = SubResource("CircleShape2D_rmy4q")

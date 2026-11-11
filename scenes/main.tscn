@@ -5,7 +5,10 @@
 [ext_resource type="AudioStream" uid="uid://dlg7wqq8fybg3" path="res://assets/sounds/AlienDad_Musik.wav" id="2_tefeu"]
 [ext_resource type="Texture2D" uid="uid://2sm8ap2lswxh" path="res://assets/sprites/office/Building_Tiles.png" id="4_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://tnhgt5sr4icp" path="res://scenes/player.tscn" id="5_tbgi4"]
+[ext_resource type="Resource" uid="uid://gipffcb64va5" path="res://resources/character_ids/armstrong_id.tres" id="6_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://mry6neuk5n38" path="res://scenes/guard.tscn" id="6_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://d3xqn8v53ugho" path="res://scenes/door.tscn" id="6_tipki"]
+[ext_resource type="Script" uid="uid://d3r8cfdw2ei2c" path="res://scripts/security_code.gd" id="7_85g3d"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_tefeu"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -105,6 +108,25 @@ sources/1 = SubResource("TileSetAtlasSource_tipki")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o6xl0"]
 
+[sub_resource type="Resource" id="Resource_tefeu"]
+script = ExtResource("7_85g3d")
+metadata/_custom_type_script = "uid://d3r8cfdw2ei2c"
+
+[sub_resource type="Resource" id="Resource_tipki"]
+script = ExtResource("7_85g3d")
+level = 1
+metadata/_custom_type_script = "uid://d3r8cfdw2ei2c"
+
+[sub_resource type="Resource" id="Resource_85g3d"]
+script = ExtResource("7_85g3d")
+level = 2
+metadata/_custom_type_script = "uid://d3r8cfdw2ei2c"
+
+[sub_resource type="Resource" id="Resource_choun"]
+script = ExtResource("7_85g3d")
+level = 3
+metadata/_custom_type_script = "uid://d3r8cfdw2ei2c"
+
 [node name="Main" type="Node2D" unique_id=1805818713]
 
 [node name="level1" type="Node2D" parent="." unique_id=1980516356]
@@ -123,19 +145,457 @@ navigation_polygon = SubResource("NavigationPolygon_o6xl0")
 
 [node name="NPC" type="Node2D" parent="level1" unique_id=913914847]
 
-[node name="Guard" parent="level1/NPC" unique_id=1633581234 instance=ExtResource("6_o6xl0")]
-position = Vector2(-60, 48)
+[node name="Agents" type="Node2D" parent="level1/NPC" unique_id=1026425346]
 
-[node name="Guard2" parent="level1/NPC" unique_id=919028713 instance=ExtResource("6_o6xl0")]
-position = Vector2(-47, 15)
+[node name="Guard" parent="level1/NPC/Agents" unique_id=1633581234 instance=ExtResource("6_o6xl0")]
+position = Vector2(-258, 14)
+motion_mode = 1
 
-[node name="Guard3" parent="level1/NPC" unique_id=1644775410 instance=ExtResource("6_o6xl0")]
-position = Vector2(-85, 18)
+[node name="Guard4" parent="level1/NPC/Agents" unique_id=1564350645 instance=ExtResource("6_o6xl0")]
+position = Vector2(233, 187)
+motion_mode = 1
+
+[node name="Guard29" parent="level1/NPC/Agents" unique_id=1085658376 instance=ExtResource("6_o6xl0")]
+position = Vector2(876, 151)
+motion_mode = 1
+
+[node name="Guard5" parent="level1/NPC/Agents" unique_id=266189205 instance=ExtResource("6_o6xl0")]
+position = Vector2(233, 251)
+motion_mode = 1
+
+[node name="Guard6" parent="level1/NPC/Agents" unique_id=1263927972 instance=ExtResource("6_o6xl0")]
+position = Vector2(169, 286)
+motion_mode = 1
+
+[node name="Guard7" parent="level1/NPC/Agents" unique_id=810080952 instance=ExtResource("6_o6xl0")]
+position = Vector2(169, 221)
+motion_mode = 1
+
+[node name="Guard8" parent="level1/NPC/Agents" unique_id=1991826344 instance=ExtResource("6_o6xl0")]
+position = Vector2(168, 157)
+motion_mode = 1
+
+[node name="Guard9" parent="level1/NPC/Agents" unique_id=418683599 instance=ExtResource("6_o6xl0")]
+position = Vector2(249, 141)
+motion_mode = 1
+
+[node name="Guard10" parent="level1/NPC/Agents" unique_id=764257753 instance=ExtResource("6_o6xl0")]
+position = Vector2(297, 122)
+motion_mode = 1
+
+[node name="Guard11" parent="level1/NPC/Agents" unique_id=703615014 instance=ExtResource("6_o6xl0")]
+position = Vector2(296, 187)
+motion_mode = 1
+
+[node name="Guard12" parent="level1/NPC/Agents" unique_id=107336967 instance=ExtResource("6_o6xl0")]
+position = Vector2(297, 251)
+motion_mode = 1
+
+[node name="Guard13" parent="level1/NPC/Agents" unique_id=810939227 instance=ExtResource("6_o6xl0")]
+position = Vector2(372, 184)
+motion_mode = 1
+
+[node name="Guard14" parent="level1/NPC/Agents" unique_id=1078124 instance=ExtResource("6_o6xl0")]
+position = Vector2(377, 121)
+motion_mode = 1
+
+[node name="Guard15" parent="level1/NPC/Agents" unique_id=1022352339 instance=ExtResource("6_o6xl0")]
+position = Vector2(279, -14)
+motion_mode = 1
+
+[node name="Guard16" parent="level1/NPC/Agents" unique_id=1214037746 instance=ExtResource("6_o6xl0")]
+position = Vector2(289, 20)
+motion_mode = 1
+
+[node name="Guard17" parent="level1/NPC/Agents" unique_id=2032925699 instance=ExtResource("6_o6xl0")]
+position = Vector2(268, 38)
+motion_mode = 1
+
+[node name="Guard18" parent="level1/NPC/Agents" unique_id=643287120 instance=ExtResource("6_o6xl0")]
+position = Vector2(211, 26)
+motion_mode = 1
+
+[node name="Guard19" parent="level1/NPC/Agents" unique_id=2086602840 instance=ExtResource("6_o6xl0")]
+position = Vector2(176, 25)
+motion_mode = 1
+
+[node name="Guard20" parent="level1/NPC/Agents" unique_id=493726270 instance=ExtResource("6_o6xl0")]
+position = Vector2(183, 67)
+motion_mode = 1
+
+[node name="Guard21" parent="level1/NPC/Agents" unique_id=146723453 instance=ExtResource("6_o6xl0")]
+position = Vector2(216, 58)
+motion_mode = 1
+
+[node name="Guard22" parent="level1/NPC/Agents" unique_id=779145428 instance=ExtResource("6_o6xl0")]
+position = Vector2(178, -88)
+motion_mode = 1
+
+[node name="Guard23" parent="level1/NPC/Agents" unique_id=1147372474 instance=ExtResource("6_o6xl0")]
+position = Vector2(191, -135)
+motion_mode = 1
+
+[node name="Guard24" parent="level1/NPC/Agents" unique_id=1285183056 instance=ExtResource("6_o6xl0")]
+position = Vector2(177, -167)
+motion_mode = 1
+
+[node name="Guard25" parent="level1/NPC/Agents" unique_id=2115139334 instance=ExtResource("6_o6xl0")]
+position = Vector2(473, -173)
+motion_mode = 1
+
+[node name="Guard26" parent="level1/NPC/Agents" unique_id=371794444 instance=ExtResource("6_o6xl0")]
+position = Vector2(509, -159)
+motion_mode = 1
+
+[node name="Guard27" parent="level1/NPC/Agents" unique_id=498415488 instance=ExtResource("6_o6xl0")]
+position = Vector2(486, -141)
+motion_mode = 1
+
+[node name="Guard28" parent="level1/NPC/Agents" unique_id=2144689398 instance=ExtResource("6_o6xl0")]
+position = Vector2(572, -156)
+motion_mode = 1
+
+[node name="Guard2" parent="level1/NPC/Agents" unique_id=539061484 instance=ExtResource("6_o6xl0")]
+position = Vector2(-200, -39)
+motion_mode = 1
+
+[node name="Guard3" parent="level1/NPC/Agents" unique_id=894376458 instance=ExtResource("6_o6xl0")]
+position = Vector2(-260, -73)
+motion_mode = 1
+
+[node name="Leaders" type="Node2D" parent="level1/NPC" unique_id=105580963]
+
+[node name="Guard29" parent="level1/NPC/Leaders" unique_id=879114145 instance=ExtResource("6_o6xl0")]
+position = Vector2(332, -165)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard30" parent="level1/NPC/Leaders" unique_id=1568459049 instance=ExtResource("6_o6xl0")]
+position = Vector2(271, -168)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard31" parent="level1/NPC/Leaders" unique_id=2057666340 instance=ExtResource("6_o6xl0")]
+position = Vector2(633, -165)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard32" parent="level1/NPC/Leaders" unique_id=1831106669 instance=ExtResource("6_o6xl0")]
+position = Vector2(732, 24)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard33" parent="level1/NPC/Leaders" unique_id=1870281862 instance=ExtResource("6_o6xl0")]
+position = Vector2(477, 246)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard34" parent="level1/NPC/Leaders" unique_id=1581804166 instance=ExtResource("6_o6xl0")]
+position = Vector2(349, 250)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard35" parent="level1/NPC/Leaders" unique_id=1447139431 instance=ExtResource("6_o6xl0")]
+position = Vector2(356, 280)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard36" parent="level1/NPC/Leaders" unique_id=1210159843 instance=ExtResource("6_o6xl0")]
+position = Vector2(483, 279)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard37" parent="level1/NPC/Leaders" unique_id=172645802 instance=ExtResource("6_o6xl0")]
+position = Vector2(603, 253)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard38" parent="level1/NPC/Leaders" unique_id=179622070 instance=ExtResource("6_o6xl0")]
+position = Vector2(612, 275)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard39" parent="level1/NPC/Leaders" unique_id=115745909 instance=ExtResource("6_o6xl0")]
+position = Vector2(699, 244)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard40" parent="level1/NPC/Leaders" unique_id=842124012 instance=ExtResource("6_o6xl0")]
+position = Vector2(736, 186)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard41" parent="level1/NPC/Leaders" unique_id=609096393 instance=ExtResource("6_o6xl0")]
+position = Vector2(737, 112)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard42" parent="level1/NPC/Leaders" unique_id=1630256764 instance=ExtResource("6_o6xl0")]
+position = Vector2(823, -98)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard44" parent="level1/NPC/Leaders" unique_id=609763063 instance=ExtResource("6_o6xl0")]
+position = Vector2(740, -93)
+motion_mode = 1
+agent_leader = true
+
+[node name="Guard45" parent="level1/NPC/Leaders" unique_id=479259401 instance=ExtResource("6_o6xl0")]
+position = Vector2(856, 243)
+motion_mode = 1
+security_pass = ExtResource("6_eb6dy")
 
 [node name="Doors" type="Node2D" parent="level1" unique_id=561313355]
 
+[node name="NoSecDoors" type="Node2D" parent="level1/Doors" unique_id=97184419]
+
+[node name="Door" parent="level1/Doors/NoSecDoors" unique_id=1021106081 instance=ExtResource("6_tipki")]
+position = Vector2(-152, -24)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door2" parent="level1/Doors/NoSecDoors" unique_id=752425474 instance=ExtResource("6_tipki")]
+position = Vector2(312, 8)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door3" parent="level1/Doors/NoSecDoors" unique_id=352106276 instance=ExtResource("6_tipki")]
+position = Vector2(248, 24)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door4" parent="level1/Doors/NoSecDoors" unique_id=1321045399 instance=ExtResource("6_tipki")]
+position = Vector2(216, -120)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door5" parent="level1/Doors/NoSecDoors" unique_id=1678332005 instance=ExtResource("6_tipki")]
+position = Vector2(312, 120)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door6" parent="level1/Doors/NoSecDoors" unique_id=2079584326 instance=ExtResource("6_tipki")]
+position = Vector2(344, 120)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door7" parent="level1/Doors/NoSecDoors" unique_id=1009396817 instance=ExtResource("6_tipki")]
+position = Vector2(344, 184)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door18" parent="level1/Doors/NoSecDoors" unique_id=1432815765 instance=ExtResource("6_tipki")]
+position = Vector2(440, -168)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door19" parent="level1/Doors/NoSecDoors" unique_id=1277727597 instance=ExtResource("6_tipki")]
+position = Vector2(568, -104)
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door8" parent="level1/Doors/NoSecDoors" unique_id=945130118 instance=ExtResource("6_tipki")]
+position = Vector2(312, 184)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door9" parent="level1/Doors/NoSecDoors" unique_id=1645887224 instance=ExtResource("6_tipki")]
+position = Vector2(280, 184)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door10" parent="level1/Doors/NoSecDoors" unique_id=2075643293 instance=ExtResource("6_tipki")]
+position = Vector2(216, 184)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door11" parent="level1/Doors/NoSecDoors" unique_id=680420713 instance=ExtResource("6_tipki")]
+position = Vector2(280, 248)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door12" parent="level1/Doors/NoSecDoors" unique_id=37508356 instance=ExtResource("6_tipki")]
+position = Vector2(280, 296)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door13" parent="level1/Doors/NoSecDoors" unique_id=2017327323 instance=ExtResource("6_tipki")]
+position = Vector2(216, 248)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door14" parent="level1/Doors/NoSecDoors" unique_id=1634107126 instance=ExtResource("6_tipki")]
+position = Vector2(184, 280)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door15" parent="level1/Doors/NoSecDoors" unique_id=2025997018 instance=ExtResource("6_tipki")]
+position = Vector2(184, 216)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door16" parent="level1/Doors/NoSecDoors" unique_id=1445348361 instance=ExtResource("6_tipki")]
+position = Vector2(184, 152)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+
+[node name="Door17" parent="level1/Doors/NoSecDoors" unique_id=1160556624 instance=ExtResource("6_tipki")]
+position = Vector2(248, 120)
+security_level = SubResource("Resource_tefeu")
+
+[node name="LowSecDoors" type="Node2D" parent="level1/Doors" unique_id=6604421]
+visible = false
+
+[node name="Door2" parent="level1/Doors/LowSecDoors" unique_id=1046083154 instance=ExtResource("6_tipki")]
+position = Vector2(152, -40)
+rotation = -1.5707964
+security_level = SubResource("Resource_tipki")
+locked = true
+
+[node name="Door5" parent="level1/Doors/LowSecDoors" unique_id=1853616056 instance=ExtResource("6_tipki")]
+position = Vector2(520, 264)
+rotation = -1.5707964
+security_level = SubResource("Resource_tipki")
+locked = true
+
+[node name="Door6" parent="level1/Doors/LowSecDoors" unique_id=712811906 instance=ExtResource("6_tipki")]
+position = Vector2(392, 264)
+rotation = -1.5707964
+security_level = SubResource("Resource_tipki")
+locked = true
+
+[node name="Door7" parent="level1/Doors/LowSecDoors" unique_id=450611138 instance=ExtResource("6_tipki")]
+position = Vector2(712, -24)
+rotation = -1.5707964
+security_level = SubResource("Resource_tipki")
+locked = true
+
+[node name="Door8" parent="level1/Doors/LowSecDoors" unique_id=51201834 instance=ExtResource("6_tipki")]
+position = Vector2(664, -152)
+rotation = -1.5707964
+security_level = SubResource("Resource_tipki")
+locked = true
+
+[node name="Door9" parent="level1/Doors/LowSecDoors" unique_id=1319389647 instance=ExtResource("6_tipki")]
+position = Vector2(392, -168)
+rotation = -1.5707964
+security_level = SubResource("Resource_tipki")
+locked = true
+
+[node name="Door10" parent="level1/Doors/LowSecDoors" unique_id=2072289281 instance=ExtResource("6_tipki")]
+position = Vector2(216, -168)
+rotation = -1.5707964
+security_level = SubResource("Resource_tipki")
+locked = true
+
+[node name="Door3" parent="level1/Doors/LowSecDoors" unique_id=433980047 instance=ExtResource("6_tipki")]
+position = Vector2(856, 120)
+security_level = SubResource("Resource_tipki")
+locked = true
+
+[node name="Door4" parent="level1/Doors/LowSecDoors" unique_id=279362912 instance=ExtResource("6_tipki")]
+position = Vector2(152, -24)
+rotation = 1.5707964
+security_level = SubResource("Resource_tipki")
+locked = true
+
+[node name="HiSecDoors" type="Node2D" parent="level1/Doors" unique_id=1607653859]
+
+[node name="Door3" parent="level1/Doors/HiSecDoors" unique_id=1351308544 instance=ExtResource("6_tipki")]
+position = Vector2(280, -88)
+security_level = SubResource("Resource_85g3d")
+locked = true
+
+[node name="Door6" parent="level1/Doors/HiSecDoors" unique_id=766874072 instance=ExtResource("6_tipki")]
+position = Vector2(856, 184)
+security_level = SubResource("Resource_85g3d")
+locked = true
+
+[node name="Door4" parent="level1/Doors/HiSecDoors" unique_id=457076671 instance=ExtResource("6_tipki")]
+position = Vector2(360, -56)
+rotation = 1.5707964
+security_level = SubResource("Resource_85g3d")
+locked = true
+
+[node name="Door7" parent="level1/Doors/HiSecDoors" unique_id=518598418 instance=ExtResource("6_tipki")]
+position = Vector2(760, 136)
+rotation = 1.5707964
+security_level = SubResource("Resource_85g3d")
+locked = true
+
+[node name="Door11" parent="level1/Doors/HiSecDoors" unique_id=893743245 instance=ExtResource("6_tipki")]
+position = Vector2(648, 280)
+rotation = 1.5707964
+security_level = SubResource("Resource_85g3d")
+locked = true
+
+[node name="Door8" parent="level1/Doors/HiSecDoors" unique_id=362818478 instance=ExtResource("6_tipki")]
+position = Vector2(856, -104)
+rotation = 1.5707964
+security_level = SubResource("Resource_85g3d")
+locked = true
+
+[node name="Door9" parent="level1/Doors/HiSecDoors" unique_id=138852650 instance=ExtResource("6_tipki")]
+position = Vector2(760, -152)
+security_level = SubResource("Resource_85g3d")
+locked = true
+
+[node name="Door10" parent="level1/Doors/HiSecDoors" unique_id=1859168508 instance=ExtResource("6_tipki")]
+position = Vector2(728, 264)
+security_level = SubResource("Resource_85g3d")
+locked = true
+
+[node name="Door5" parent="level1/Doors/HiSecDoors" unique_id=990701916 instance=ExtResource("6_tipki")]
+position = Vector2(392, -24)
+rotation = 1.5707964
+security_level = SubResource("Resource_85g3d")
+locked = true
+
+[node name="TopSecDoors" type="Node2D" parent="level1/Doors" unique_id=261178119]
+
+[node name="Door5" parent="level1/Doors/TopSecDoors" unique_id=853032079 instance=ExtResource("6_tipki")]
+position = Vector2(440, 56)
+rotation = 1.5707964
+security_level = SubResource("Resource_choun")
+locked = true
+
+[node name="Door11" parent="level1/Doors/TopSecDoors" unique_id=1528995703 instance=ExtResource("6_tipki")]
+position = Vector2(854, 72)
+security_level = SubResource("Resource_choun")
+locked = true
+
+[node name="Door6" parent="level1/Doors/TopSecDoors" unique_id=1777852341 instance=ExtResource("6_tipki")]
+position = Vector2(520, -24)
+rotation = 1.5707964
+security_level = SubResource("Resource_choun")
+locked = true
+
+[node name="Door7" parent="level1/Doors/TopSecDoors" unique_id=1323599028 instance=ExtResource("6_tipki")]
+position = Vector2(584, -24)
+rotation = 1.5707964
+security_level = SubResource("Resource_choun")
+locked = true
+
+[node name="Door8" parent="level1/Doors/TopSecDoors" unique_id=921150600 instance=ExtResource("6_tipki")]
+position = Vector2(584, 56)
+rotation = 1.5707964
+security_level = SubResource("Resource_choun")
+locked = true
+
+[node name="Door9" parent="level1/Doors/TopSecDoors" unique_id=1472999923 instance=ExtResource("6_tipki")]
+position = Vector2(584, 136)
+rotation = 1.5707964
+security_level = SubResource("Resource_choun")
+locked = true
+
+[node name="Door10" parent="level1/Doors/TopSecDoors" unique_id=1583597427 instance=ExtResource("6_tipki")]
+position = Vector2(520, 136)
+rotation = 1.5707964
+security_level = SubResource("Resource_choun")
+locked = true
+
 [node name="Player" parent="level1" unique_id=1695450581 instance=ExtResource("5_tbgi4")]
-position = Vector2(24, 24)
+visible = false
+position = Vector2(-154, 395)
 
 [node name="Camera2D" type="Camera2D" parent="level1/Player" unique_id=1976595741]
 position = Vector2(1, 2)

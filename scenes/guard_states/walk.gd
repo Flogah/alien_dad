@@ -13,11 +13,12 @@ func physics_update(_delta: float) -> void:
 		var new_vel = (next_path_position - enemy.global_position).normalized()
 		enemy.velocity = new_vel * 15
 		enemy.last_move_direction = new_vel.normalized()
-		enemy.move_and_slide()
 	else:
 		switch_state.emit("idle")
+	enemy.move_and_slide()
 
 func on_target_reached():
+	enemy.player.lose_skin()
 	switch_state.emit("idle")
 
 func exit_state() -> void:

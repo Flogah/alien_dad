@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var vision_raycast: RayCast2D = %VisionRaycast
 @onready var state_machine: StateMachine = %StateMachine
 @onready var vision_cone: Sprite2D = %VisionCone
+@onready var lose_area: Area2D = %LoseArea
 
 @export var agent_leader:bool = false
 @export var security_pass: SecurityPass
@@ -23,7 +24,6 @@ var sees_player:bool = false:
 var perceives_player_as_threat:bool = false:
 	set(new_val):
 		if perceives_player_as_threat != new_val:
-			print(new_val)
 			perceives_player_as_threat = new_val
 			if perceives_player_as_threat:
 				state_machine.active_state.switch_state.emit("attack_walk")
@@ -43,17 +43,19 @@ func _ready() -> void:
 	if security_pass.holder.is_empty():
 		security_pass.holder = CharacterGenerator.random_first_last_name()
 	
-	detection_area.body_exited.connect(lose_player)
+	lose_area.body_exited.connect(lose_player)
 	detection_area.body_entered.connect(find_player)
 	interactable.interacted.connect(on_interacted)
 
 func _physics_process(delta: float) -> void:
 	if player:
 		detect_player()
-	if sees_player:
+	if sees_player and !perceives_player_as_threat:
 		check_player_id()
 	
+	print(last_move_direction)
 	vision_cone.rotation = last_move_direction.angle() - deg_to_rad(45.0)
+	print(state_machine.active_state.name)
 	
 	var vel:Vector2 = velocity.normalized()
 	if vel.x < 0.0:
@@ -70,15 +72,15 @@ func on_interacted(actor, sec_acc):
 	die()
 
 func find_player(body):
-	if body is Player:
+	if body is Player and !player:
 		player = body
-		player.eating.connect(check_player_id)
+		player.eating.connect(func(): perceives_player_as_threat = true)
 
 func lose_player(body):
-	if body is Player:
+	if body is Player and player:
 		sees_player = false
 		perceives_player_as_threat = false
-		player.eating.disconnect(check_player_id)
+		player.eating.disconnect(func(): perceives_player_as_threat = true)
 		player = null
 
 func die():
@@ -87,6 +89,8 @@ func die():
 	vision_raycast.enabled = false
 	blood_particles.emitting = true
 	dead = true
+	player = null
+	vision_cone.hide()
 	collision_layer = 0
 	collision_mask = 0
 	state_machine.active_state.switch_state.emit("dead")
@@ -101,6 +105,9 @@ func detect_player():
 			sees_player = true
 		else:
 			sees_player = false
+			perceives_player_as_threat = false
+			player.eating.disconnect(func(): perceives_player_as_threat = true)
+			player = null
 
 func check_player_id():
 	var p_id:SecurityPass = player.get_id()

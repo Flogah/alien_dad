@@ -49,7 +49,14 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if player:
-		detect_player()
+		if detect_player():
+			sees_player = true
+		else:
+			sees_player = false
+			perceives_player_as_threat = false
+			player.eating.disconnect(see_threat)
+			player = null
+	
 	if sees_player and !perceives_player_as_threat:
 		check_player_id()
 	
@@ -95,7 +102,9 @@ func die():
 	collision_mask = 0
 	state_machine.active_state.switch_state.emit("dead")
 
-func detect_player():
+func detect_player() -> bool:
+	if !player:
+		return false
 	var player_position = player.global_position - global_position
 	vision_raycast.target_position = player_position
 	var dot:float = player_position.normalized().dot(last_move_direction)
@@ -103,14 +112,10 @@ func detect_player():
 		var collider = vision_raycast.get_collider()
 		if collider is Player:
 			sees_player = true
-		else:
-			sees_player = false
-			perceives_player_as_threat = false
-			player.eating.disconnect(see_threat)
-			player = null
+	return false
 
 func see_threat():
-	if player and sees_player:
+	if detect_player():
 		perceives_player_as_threat = true
 
 func check_player_id():

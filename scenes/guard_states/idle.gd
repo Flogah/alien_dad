@@ -5,16 +5,16 @@ extends State
 var timer:float
 
 func enter_state(_data: Dictionary = {}) -> void:
-	enemy.velocity = Vector2.ZERO
-	timer = randf_range(3, 5)
+	timer = 5.0
 	if enemy.sprite:
 		enemy.sprite.play("idle")
 
 func physics_update(_delta: float) -> void:
-	enemy.move_and_slide()
+	enemy.velocity = Vector2.ZERO
 	timer -= _delta
 	if timer < 0.0:
 		pace()
+	enemy.move_and_slide()
 
 func pace():
 	var random_pos:Vector2 = enemy.global_position + Vector2(randi_range(-20, 20), randi_range(-15, 15))

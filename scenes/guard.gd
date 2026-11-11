@@ -74,13 +74,13 @@ func on_interacted(actor, sec_acc):
 func find_player(body):
 	if body is Player and !player:
 		player = body
-		player.eating.connect(func(): perceives_player_as_threat = true)
+		player.eating.connect(see_threat)
 
 func lose_player(body):
 	if body is Player and player:
 		sees_player = false
 		perceives_player_as_threat = false
-		player.eating.disconnect(func(): perceives_player_as_threat = true)
+		player.eating.disconnect(see_threat)
 		player = null
 
 func die():
@@ -106,8 +106,12 @@ func detect_player():
 		else:
 			sees_player = false
 			perceives_player_as_threat = false
-			player.eating.disconnect(func(): perceives_player_as_threat = true)
+			player.eating.disconnect(see_threat)
 			player = null
+
+func see_threat():
+	if player and sees_player:
+		perceives_player_as_threat = true
 
 func check_player_id():
 	var p_id:SecurityPass = player.get_id()

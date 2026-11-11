@@ -53,9 +53,9 @@ func _physics_process(delta: float) -> void:
 	if sees_player and !perceives_player_as_threat:
 		check_player_id()
 	
-	print(last_move_direction)
+	#print(last_move_direction)
 	vision_cone.rotation = last_move_direction.angle() - deg_to_rad(45.0)
-	print(state_machine.active_state.name)
+	#print(state_machine.active_state.name)
 	
 	var vel:Vector2 = velocity.normalized()
 	if vel.x < 0.0:
@@ -113,9 +113,9 @@ func check_player_id():
 	var p_id:SecurityPass = player.get_id()
 	if p_id.level == 0 and !perceives_player_as_threat:
 		perceives_player_as_threat = true
-		print("OH NO")
+		Exclamator.exclaim("!", global_position, Color.ORANGE_RED)
 	elif p_id.level > security_pass.level and !perceives_player_as_threat:
-		print("Good morning, sir!")
+		Exclamator.exclaim("Good morning, sir!", global_position)
 
 func get_id() -> SecurityPass:
 	return security_pass

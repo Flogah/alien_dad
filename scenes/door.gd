@@ -16,12 +16,12 @@ func _ready() -> void:
 func on_interacted(actor, sec_acc:SecurityCode):
 	if locked:
 		if sec_acc.level >= security_level.level:
-			print("Access granted")
+			Exclamator.exclaim("GRANTED", global_position, security_level.get_security_color(security_level.level))
 			locked = false
 			update_sprite()
 			return
 		else:
-			print("Higher access needed")
+			Exclamator.exclaim("DENIED", global_position, security_level.get_security_color(security_level.level))
 			return
 	if closed:
 		open()

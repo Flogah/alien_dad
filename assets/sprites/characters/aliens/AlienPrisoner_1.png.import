@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuhk3gwe8rv2p"
-path="res://.godot/imported/AlienDad_Rev.png-fcf61236434d87a08b14ece9b624f11d.ctex"
+uid="uid://bdp3uyhmyraty"
+path="res://.godot/imported/AlienPrisoner_1.png-f17da7fa6eaee7a6f8f449fbdaf40cb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/AlienDad_Rev.png"
-dest_files=["res://.godot/imported/AlienDad_Rev.png-fcf61236434d87a08b14ece9b624f11d.ctex"]
+source_file="res://assets/sprites/characters/aliens/AlienPrisoner_1.png"
+dest_files=["res://.godot/imported/AlienPrisoner_1.png-f17da7fa6eaee7a6f8f449fbdaf40cb1.ctex"]
 
 [params]
 

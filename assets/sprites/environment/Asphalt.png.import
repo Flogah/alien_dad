@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8q55kcey3dgf"
-path="res://.godot/imported/AlienDad.png-dfb696e2a4c2e18a53c140b3ad465ea4.ctex"
+uid="uid://dme4y6gotqm66"
+path="res://.godot/imported/Asphalt.png-67ff58975560ef386f664f67e80a5592.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/AlienDad.png"
-dest_files=["res://.godot/imported/AlienDad.png-dfb696e2a4c2e18a53c140b3ad465ea4.ctex"]
+source_file="res://assets/sprites/environment/Asphalt.png"
+dest_files=["res://.godot/imported/Asphalt.png-67ff58975560ef386f664f67e80a5592.ctex"]
 
 [params]
 

@@ -1,7 +1,24 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://csanydve7t0m7"]
 
+[ext_resource type="Texture2D" uid="uid://c1qdc3yu5kc61" path="res://assets/sprites/characters/Bluesuit_dude_lightsaber.png" id="1_exi60"]
 [ext_resource type="Texture2D" uid="uid://dyopsp3awsmrg" path="res://assets/sprites/characters/Blue_Suit_dude.png" id="1_tswd1"]
 [ext_resource type="Texture2D" uid="uid://ve3ohjs46xfb" path="res://assets/sprites/characters/Blue_Suit_dude_ruecken.png" id="2_0wciv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhqnj"]
+atlas = ExtResource("1_exi60")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_537ux"]
+atlas = ExtResource("1_exi60")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voe8h"]
+atlas = ExtResource("1_exi60")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi5xr"]
+atlas = ExtResource("1_exi60")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ak6r"]
 atlas = ExtResource("1_tswd1")
@@ -45,6 +62,23 @@ region = Rect2(0, 0, 16, 16)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhqnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_537ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voe8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi5xr")
+}],
+"loop": 1,
+"name": &"attack_walk",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2ak6r")

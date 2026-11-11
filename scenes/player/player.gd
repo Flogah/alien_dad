@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal eating
+
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var interaction_area: Area2D = $InteractionArea
 @onready var player_ui: CanvasLayer = %PlayerUI
@@ -73,6 +75,7 @@ func assume_skin(new_pass: SecurityPass):
 	security_pass = new_pass
 	sprite.sprite_frames = security_pass.sprite
 	player_ui.security_id = security_pass
+	eating.emit()
 
 func lose_skin():
 	sprite.sprite_frames = original_id.sprite

@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://mry6neuk5n38"]
 
 [ext_resource type="Script" uid="uid://dg8pucxpetbsi" path="res://scenes/guard.gd" id="1_k0dx2"]
-[ext_resource type="SpriteFrames" uid="uid://ci6jgmussaneu" path="res://assets/sprites/sprite_frames/grey_suit_spritesframes.tres" id="2_k0dx2"]
+[ext_resource type="SpriteFrames" uid="uid://cak5gslna3kum" path="res://assets/sprites/sprite_frames/black_suit_spriteframes.tres" id="2_ywdc2"]
 [ext_resource type="Script" uid="uid://dpxr64juka2si" path="res://scenes/interactable.gd" id="3_gn8tx"]
+[ext_resource type="Texture2D" uid="uid://8shwb4drhm3c" path="res://assets/sprites/characters/vision_cone.png" id="3_rmy4q"]
 [ext_resource type="Script" uid="uid://djrc3ca55nyt8" path="res://scripts/state_machine/state_machine.gd" id="4_gn8tx"]
 [ext_resource type="Script" uid="uid://7xllfds2knkq" path="res://scenes/guard_states/idle.gd" id="5_gn8tx"]
+[ext_resource type="Script" uid="uid://b3jjbbsktl2id" path="res://scenes/guard_states/walk.gd" id="6_5dfqo"]
+[ext_resource type="Script" uid="uid://kund38qf4fcm" path="res://scenes/guard_states/attackwalk.gd" id="6_c4sgu"]
+[ext_resource type="Script" uid="uid://dxujr7ho4ynwl" path="res://scenes/guard_states/dead.gd" id="7_ywdc2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbgi4"]
 radius = 2.0
@@ -66,8 +70,15 @@ path_postprocessing = 1
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1888564404]
 position = Vector2(0, -7)
-sprite_frames = ExtResource("2_k0dx2")
-animation = &"idle"
+sprite_frames = ExtResource("2_ywdc2")
+animation = &"walk_up"
+
+[node name="VisionCone" type="Sprite2D" parent="." unique_id=1293999744]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.33333334)
+scale = Vector2(3, 3)
+texture = ExtResource("3_rmy4q")
+offset = Vector2(8, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=129552200]
 rotation = 1.5707964
@@ -93,6 +104,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_5dfqo")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1230442977 node_paths=PackedStringArray("initial_state")]
+unique_name_in_owner = true
 script = ExtResource("4_gn8tx")
 initial_state = NodePath("Idle")
 
@@ -102,8 +114,32 @@ enemy = NodePath("../..")
 state_id = &"idle"
 metadata/_custom_type_script = "uid://bfbxxj3mlo3uq"
 
+[node name="Walk" type="Node" parent="StateMachine" unique_id=268592475 node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_c4sgu")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://bfbxxj3mlo3uq"
+
+[node name="AttackWalk" type="Node" parent="StateMachine" unique_id=36338053 node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_5dfqo")
+enemy = NodePath("../..")
+state_id = &"attack_walk"
+metadata/_custom_type_script = "uid://bfbxxj3mlo3uq"
+
+[node name="Dead" type="Node" parent="StateMachine" unique_id=241445488 node_paths=PackedStringArray("enemy")]
+script = ExtResource("7_ywdc2")
+enemy = NodePath("../..")
+state_id = &"dead"
+metadata/_custom_type_script = "uid://bfbxxj3mlo3uq"
+
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1480682960]
 unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1366269589]
 shape = SubResource("CircleShape2D_ifpyu")
+
+[node name="VisionRaycast" type="RayCast2D" parent="DetectionArea" unique_id=2123315247]
+unique_name_in_owner = true
+collision_mask = 3

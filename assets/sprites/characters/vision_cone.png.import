@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bww2t76qxthoi"
-path="res://.godot/imported/Alien_Baby.png-7b6764fc9a92daf7bf87e8a44a031a50.ctex"
+uid="uid://8shwb4drhm3c"
+path="res://.godot/imported/vision_cone.png-a9116b1eef0f7cd7ea912dce58c529c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/Alien_Baby.png"
-dest_files=["res://.godot/imported/Alien_Baby.png-7b6764fc9a92daf7bf87e8a44a031a50.ctex"]
+source_file="res://assets/sprites/characters/vision_cone.png"
+dest_files=["res://.godot/imported/vision_cone.png-a9116b1eef0f7cd7ea912dce58c529c0.ctex"]
 
 [params]
 

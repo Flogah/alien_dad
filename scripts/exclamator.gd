@@ -12,21 +12,24 @@ func update_times(delta):
 		return
 	for label in label_timing_dict:
 		label_timing_dict[label].x += delta
+		label.modulate = Color(Color.WHITE, 1- (label_timing_dict[label].x / label_timing_dict[label].y))
+		label.position.y -= 0.05 * (label_timing_dict[label].x / label_timing_dict[label].y)
+		
 		if label_timing_dict[label].x >= label_timing_dict[label].y:
 			label_timing_dict.erase(label)
 			label.queue_free()
 
-func exclaim(text: String, pos: Vector2, time: float = 1.0):
+func exclaim(text: String, pos: Vector2, col: Color = Color.WHITE, time: float = 2.0):
 	var new_label = create_text(text)
 	add_child(new_label)
 	new_label.position = pos + Vector2(0, -14)
+	new_label.set("theme_override_colors/font_color", col)
 	label_timing_dict[new_label] = Vector2(0.0, time)
 
 func create_text(text: String) -> Label:
 	var label:Label = Label.new()
 	label.theme = STANDARD_THEME
-	label.set_horizontal_alignment(HORIZONTAL_ALIGNMENT_CENTER)
 	label.text = text
 	label.z_index = 99
-	label.scale = Vector2.ONE * 0.2
+	label.scale = Vector2.ONE * 0.4
 	return label

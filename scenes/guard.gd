@@ -113,7 +113,7 @@ func check_player_id():
 	var p_id:SecurityPass = player.get_id()
 	if p_id.level == 0 and !perceives_player_as_threat:
 		perceives_player_as_threat = true
-		Exclamator.exclaim("OH NO!", global_position)
+		Exclamator.exclaim("!", global_position, Color.ORANGE_RED)
 	elif p_id.level > security_pass.level and !perceives_player_as_threat:
 		Exclamator.exclaim("Good morning, sir!", global_position)
 

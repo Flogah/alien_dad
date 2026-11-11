@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://tnhgt5sr4icp" path="res://scenes/player.tscn" id="5_tbgi4"]
 [ext_resource type="Resource" uid="uid://gipffcb64va5" path="res://resources/character_ids/armstrong_id.tres" id="6_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://mry6neuk5n38" path="res://scenes/guard.tscn" id="6_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://c5hjuh4d16bxl" path="res://assets/sprites/environment/Outside_tiles.png" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://d3xqn8v53ugho" path="res://scenes/door.tscn" id="6_tipki"]
 [ext_resource type="Script" uid="uid://d3r8cfdw2ei2c" path="res://scripts/security_code.gd" id="7_85g3d"]
 
@@ -117,7 +116,6 @@ texture = ExtResource("5_o6xl0")
 0:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
-texture = ExtResource("6_tipki")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -379,6 +377,12 @@ position = Vector2(-152, -24)
 rotation = -1.5707964
 security_level = SubResource("Resource_tefeu")
 
+[node name="Door20" parent="level1/Doors/NoSecDoors" unique_id=1638617267 instance=ExtResource("6_tipki")]
+position = Vector2(-142, 358)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+locked = true
+
 [node name="Door2" parent="level1/Doors/NoSecDoors" unique_id=752425474 instance=ExtResource("6_tipki")]
 position = Vector2(312, 8)
 rotation = -1.5707964
@@ -468,7 +472,6 @@ position = Vector2(248, 120)
 security_level = SubResource("Resource_tefeu")
 
 [node name="LowSecDoors" type="Node2D" parent="level1/Doors" unique_id=6604421]
-visible = false
 
 [node name="Door2" parent="level1/Doors/LowSecDoors" unique_id=1046083154 instance=ExtResource("6_tipki")]
 position = Vector2(152, -40)
@@ -619,7 +622,6 @@ security_level = SubResource("Resource_choun")
 locked = true
 
 [node name="Player" parent="level1" unique_id=1695450581 instance=ExtResource("5_tbgi4")]
-visible = false
 position = Vector2(-154, 395)
 
 [node name="Camera2D" type="Camera2D" parent="level1/Player" unique_id=1976595741]

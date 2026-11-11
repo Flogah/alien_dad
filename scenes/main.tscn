@@ -446,6 +446,12 @@ position = Vector2(-152, -24)
 rotation = -1.5707964
 security_level = SubResource("Resource_tefeu")
 
+[node name="Door20" parent="level1/Doors/NoSecDoors" unique_id=1638617267 instance=ExtResource("6_tipki")]
+position = Vector2(-142, 358)
+rotation = -1.5707964
+security_level = SubResource("Resource_tefeu")
+locked = true
+
 [node name="Door2" parent="level1/Doors/NoSecDoors" unique_id=752425474 instance=ExtResource("6_tipki")]
 position = Vector2(312, 8)
 rotation = -1.5707964

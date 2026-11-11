@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://bqgs28pr85ml0"]
+
+[ext_resource type="Script" uid="uid://difbb8p8eoibd" path="res://scenes/main_menu.gd" id="1_8ln24"]
+[ext_resource type="Texture2D" uid="uid://8q55kcey3dgf" path="res://assets/sprites/characters/aliens/AlienDad.png" id="1_wu84c"]
+[ext_resource type="Texture2D" uid="uid://drv62l0f2cnm6" path="res://assets/sprites/characters/Armstrong_schnipsen.png" id="2_8ln24"]
+[ext_resource type="Texture2D" uid="uid://bww2t76qxthoi" path="res://assets/sprites/characters/aliens/Alien_Baby.png" id="3_rtw2f"]
+[ext_resource type="Theme" uid="uid://cj0kowg8s0uu4" path="res://assets/themes/standard_theme.tres" id="4_oa1go"]
+
+[node name="MainMenu" type="Control" unique_id=485748327]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ln24")
+start_scene_path = "res://scenes/main.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=308833291]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.099955924, 0.35285813, 0.33421314, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1480470348]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1339.0001
+offset_top = -235.0
+offset_right = 1339.0002
+offset_bottom = -235.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.394506
+color = Color(0.20327052, 0.23126936, 0.09329728, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1027480141]
+position = Vector2(208, 390)
+scale = Vector2(22.593748, 22.593748)
+texture = ExtResource("1_wu84c")
+flip_h = true
+hframes = 4
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1306732604]
+position = Vector2(841, 458)
+scale = Vector2(36.609375, 36.609375)
+texture = ExtResource("2_8ln24")
+flip_h = true
+hframes = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=367228547]
+position = Vector2(1064, 436.00003)
+scale = Vector2(22.593748, 22.593748)
+texture = ExtResource("3_rtw2f")
+
+[node name="Control" type="Control" parent="." unique_id=337435494]
+anchors_preset = 0
+offset_left = 469.0
+offset_top = 136.0
+offset_right = 509.0
+offset_bottom = 176.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Label" type="Label" parent="Control" unique_id=456644730]
+layout_mode = 0
+offset_left = -433.75
+offset_top = -129.0
+offset_right = 125.25
+offset_bottom = 34.0
+theme = ExtResource("4_oa1go")
+theme_override_font_sizes/font_size = 93
+text = "ALIEN DAD"
+
+[node name="Label2" type="Label" parent="Control" unique_id=1514952778]
+layout_mode = 0
+offset_left = -39.0
+offset_top = -30.0
+offset_right = 520.0
+offset_bottom = 133.0
+theme = ExtResource("4_oa1go")
+theme_override_font_sizes/font_size = 55
+text = "VS"
+
+[node name="Label3" type="Label" parent="Control" unique_id=1338617662]
+layout_mode = 0
+offset_left = -133.75
+offset_top = 20.0
+offset_right = 425.25
+offset_bottom = 183.0
+theme = ExtResource("4_oa1go")
+theme_override_font_sizes/font_size = 93
+text = "AGENTS"
+
+[node name="babybutton" type="Button" parent="." unique_id=1216969729]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 427.0
+offset_top = 338.0
+offset_right = 599.0
+offset_bottom = 422.0
+theme_override_font_sizes/font_size = 55
+text = "BABY"
+
+[node name="nobutton" type="Button" parent="." unique_id=153518004]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 427.0
+offset_top = 441.0
+offset_right = 599.0
+offset_bottom = 525.0
+theme_override_font_sizes/font_size = 55
+text = "NO"

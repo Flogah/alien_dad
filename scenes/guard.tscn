@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://8shwb4drhm3c" path="res://assets/sprites/characters/vision_cone.png" id="3_rmy4q"]
 [ext_resource type="Script" uid="uid://djrc3ca55nyt8" path="res://scripts/state_machine/state_machine.gd" id="4_gn8tx"]
 [ext_resource type="Script" uid="uid://7xllfds2knkq" path="res://scenes/guard_states/idle.gd" id="5_gn8tx"]
-[ext_resource type="Script" uid="uid://b3jjbbsktl2id" path="res://scenes/guard_states/walk.gd" id="6_5dfqo"]
-[ext_resource type="Script" uid="uid://kund38qf4fcm" path="res://scenes/guard_states/attackwalk.gd" id="6_c4sgu"]
+[ext_resource type="Script" uid="uid://b3jjbbsktl2id" path="res://scenes/guard_states/attackwalk.gd" id="6_5dfqo"]
+[ext_resource type="Script" uid="uid://kund38qf4fcm" path="res://scenes/guard_states/walk.gd" id="6_c4sgu"]
 [ext_resource type="Script" uid="uid://dxujr7ho4ynwl" path="res://scenes/guard_states/dead.gd" id="7_ywdc2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbgi4"]

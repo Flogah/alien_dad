@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dme4y6gotqm66" path="res://assets/sprites/environment/Asphalt.png" id="7_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://vokmws22mmib" path="res://assets/sprites/environment/Armstrong_table.png" id="8_trceg"]
 [ext_resource type="Texture2D" uid="uid://ckl6d6r2ks751" path="res://assets/sprites/environment/Tisch.png" id="9_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://s15olq3dt7kn" path="res://scenes/player/baby.tscn" id="12_jkv2x"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_tefeu"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -513,6 +514,9 @@ position = Vector2(856, 243)
 motion_mode = 1
 security_pass = ExtResource("6_eb6dy")
 
+[node name="Baby" parent="level1/NPC" unique_id=1946832363 instance=ExtResource("12_jkv2x")]
+position = Vector2(616, 52)
+
 [node name="Doors" type="Node2D" parent="level1" unique_id=561313355]
 
 [node name="NoSecDoors" type="Node2D" parent="level1/Doors" unique_id=97184419]
@@ -761,7 +765,7 @@ security_level = SubResource("Resource_choun")
 locked = true
 
 [node name="Player" parent="level1" unique_id=1695450581 instance=ExtResource("5_tbgi4")]
-position = Vector2(-154, 395)
+position = Vector2(-27, 222)
 
 [node name="Camera2D" type="Camera2D" parent="level1/Player" unique_id=1976595741]
 position = Vector2(1, 2)

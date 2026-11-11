@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://s15olq3dt7kn"]
+
+[ext_resource type="Texture2D" uid="uid://bww2t76qxthoi" path="res://assets/sprites/characters/aliens/Alien_Baby.png" id="1_2q5sn"]
+[ext_resource type="Script" uid="uid://cn6yqvpwtbis3" path="res://scenes/player/baby.gd" id="1_4pi6e"]
+[ext_resource type="Script" uid="uid://dpxr64juka2si" path="res://scenes/interactable.gd" id="2_4pi6e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ifpyu"]
+
+[node name="Baby" type="Node2D" unique_id=1946832363]
+script = ExtResource("1_4pi6e")
+win_screen_path = "res://scenes/player/win_screen.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=421115094]
+texture = ExtResource("1_2q5sn")
+
+[node name="Interactable" type="Area2D" parent="." unique_id=1616194762]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("2_4pi6e")
+metadata/_custom_type_script = "uid://dpxr64juka2si"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1950628712]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_ifpyu")

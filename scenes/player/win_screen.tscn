@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://6ots5ic8qflp"]
+
+[ext_resource type="Script" uid="uid://b78u46mbwevby" path="res://scenes/player/win_screen.gd" id="1_hn026"]
+[ext_resource type="Texture2D" uid="uid://8q55kcey3dgf" path="res://assets/sprites/characters/aliens/AlienDad.png" id="1_sxqt8"]
+[ext_resource type="Texture2D" uid="uid://bww2t76qxthoi" path="res://assets/sprites/characters/aliens/Alien_Baby.png" id="2_hn026"]
+[ext_resource type="Theme" uid="uid://cj0kowg8s0uu4" path="res://assets/themes/standard_theme.tres" id="3_2orjb"]
+
+[node name="WinScreen" type="Control" unique_id=1102484939]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hn026")
+main_menu_path = "res://scenes/main_menu.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1605391325]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.099955924, 0.35285813, 0.33421314, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=786972852]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1339.0001
+offset_top = -235.0
+offset_right = 1339.0002
+offset_bottom = -235.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.394506
+color = Color(0.20327052, 0.23126936, 0.09329728, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect2" unique_id=564723336]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -57.636883
+offset_top = 893.74384
+offset_right = -57.63672
+offset_bottom = 893.7439
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.35349846
+color = Color(0.20327052, 0.23126936, 0.09329728, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1702310159]
+position = Vector2(577, 576)
+scale = Vector2(22.593748, 22.593748)
+texture = ExtResource("1_sxqt8")
+flip_h = true
+hframes = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2062207435]
+position = Vector2(574, 190)
+scale = Vector2(22.593748, 22.593748)
+texture = ExtResource("2_hn026")
+
+[node name="Label" type="Label" parent="." unique_id=528760852]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 81.0
+offset_right = 939.0
+offset_bottom = 302.0
+theme = ExtResource("3_2orjb")
+theme_override_font_sizes/font_size = 126
+text = "BABY GET"
+
+[node name="morebutton" type="Button" parent="." unique_id=752354736]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 958.0
+offset_top = 544.0
+offset_right = 1130.0
+offset_bottom = 628.0
+theme_override_font_sizes/font_size = 55
+text = "MORE"

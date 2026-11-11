@@ -157,3 +157,5 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LoseArea" unique_id=1677076364]
 visible = false
 shape = SubResource("CircleShape2D_rmy4q")
+
+[node name="Detect_Sound" type="AudioStreamPlayer2D" parent="." unique_id=1266572669]

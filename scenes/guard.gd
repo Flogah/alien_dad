@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var state_machine: StateMachine = %StateMachine
 @onready var vision_cone: Sprite2D = %VisionCone
 @onready var lose_area: Area2D = %LoseArea
+@onready var detect_sound: AudioStreamPlayer2D = $Detect_Sound
 
 @export var agent_leader:bool = false
 @export var security_pass: SecurityPass
@@ -123,6 +124,7 @@ func check_player_id():
 	if p_id.level == 0 and !perceives_player_as_threat:
 		perceives_player_as_threat = true
 		Exclamator.exclaim("!", global_position, Color.ORANGE_RED)
+		detect_sound.play()
 	elif p_id.level > security_pass.level and !perceives_player_as_threat:
 		Exclamator.exclaim("Good morning, sir!", global_position)
 

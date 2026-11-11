@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://3w1oplgxyflt" path="res://scenes/door.gd" id="1_83dcw"]
 [ext_resource type="Texture2D" uid="uid://dsljjdl0m2d40" path="res://assets/sprites/door.png" id="2_la1wf"]
 [ext_resource type="Script" uid="uid://dpxr64juka2si" path="res://scenes/interactable.gd" id="3_18pbm"]
+[ext_resource type="AudioStream" uid="uid://bjf66lgqisci1" path="res://assets/sounds/Access_denied.wav" id="4_18pbm"]
+[ext_resource type="AudioStream" uid="uid://cn4acywoqd3ev" path="res://assets/sounds/Access_granted.wav" id="5_q5w8r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
 atlas = ExtResource("2_la1wf")
@@ -50,6 +52,7 @@ size = Vector2(16, 16)
 
 [node name="Door" type="StaticBody2D" unique_id=1021106081]
 script = ExtResource("1_83dcw")
+locked = null
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=516062292]
 sprite_frames = SubResource("SpriteFrames_ckr0i")
@@ -66,3 +69,9 @@ metadata/_custom_type_script = "uid://dpxr64juka2si"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1477663035]
 shape = SubResource("CircleShape2D_fu68o")
+
+[node name="Access_denied" type="AudioStreamPlayer2D" parent="." unique_id=446655290]
+stream = ExtResource("4_18pbm")
+
+[node name="Access_granted" type="AudioStreamPlayer2D" parent="." unique_id=940464182]
+stream = ExtResource("5_q5w8r")

@@ -6,6 +6,8 @@ extends StaticBody2D
 @onready var interactable: Interactable = $Interactable
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var door: CollisionShape2D = $Door
+@onready var access_granted: AudioStreamPlayer2D = $Access_granted
+@onready var access_denied: AudioStreamPlayer2D = $Access_denied
 
 var closed: bool = true
 
@@ -19,9 +21,11 @@ func on_interacted(actor, sec_acc:SecurityCode):
 			Exclamator.exclaim("GRANTED", global_position, security_level.get_security_color(security_level.level))
 			locked = false
 			update_sprite()
+			access_granted.play()
 			return
 		else:
 			Exclamator.exclaim("DENIED", global_position, security_level.get_security_color(security_level.level))
+			access_denied.play()
 			return
 	if closed:
 		open()

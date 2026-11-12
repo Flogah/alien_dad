@@ -101,6 +101,8 @@ func die():
 	vision_cone.hide()
 	collision_layer = 0
 	collision_mask = 0
+	interactable.collision_layer = 0
+	interactable.collision_mask = 0
 	state_machine.active_state.switch_state.emit("dead")
 
 func detect_player() -> bool:
